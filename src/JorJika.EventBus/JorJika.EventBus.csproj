@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp2.0;netstandard2.0;net45</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>JorJika</Authors>
+    <Company>JorJika.Net</Company>
+    <Description>Event bus abstraction objects, integrationevent class and subscribtion manager.</Description>
+    <PackageIconUrl>http://jorjika.net/j.png</PackageIconUrl>
+    <PackageProjectUrl>http://jorjika.net</PackageProjectUrl>
+    <PackageLicenseUrl>http://jorjika.net</PackageLicenseUrl>
+    <Copyright>Copyright © JorJika.net 2018</Copyright>
+    <PackageReleaseNotes>v1.0.0 =&gt; First Release.
+v1.0.1 =&gt; Build for multiple targets (netcoreapp2.0;netstandard2.0;net451)
+v1.0.2 =&gt; Integration event class changed. Added SourceParameters object.
+v1.0.3 =&gt; Added StartReceivingEvents functionality
+v1.0.4 =&gt; Added custom exceptions to requeue messages or not. Added EventCorrelationId to IntegrationEvent
+v1.0.5 =&gt; EventId and EventCorrelationId changed to string.</PackageReleaseNotes>
+    <Version>1.0.5</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+    <Compile Remove="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+  
+</Project>

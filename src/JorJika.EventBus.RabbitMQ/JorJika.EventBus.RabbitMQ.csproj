@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net451</TargetFrameworks>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Company>JorJika.Net</Company>
+    <Authors>JorJika</Authors>
+    <Description>EventBus RabbitMQ implementation.</Description>
+    <Copyright>Copyright © JorJika.net 2018</Copyright>
+    <PackageLicenseUrl>http://jorjika.net</PackageLicenseUrl>
+    <PackageProjectUrl>http://jorjika.net</PackageProjectUrl>
+    <PackageIconUrl>http://jorjika.net/j.png</PackageIconUrl>
+    <PackageReleaseNotes>v1.0.0 =&gt; First Release.
+v1.0.1 =&gt; Build for multiple targets (netcoreapp2.0;netstandard2.0;net451)
+v1.0.2 =&gt; Added possibility to connect different type of exchange. (Added parameters in constructor)
+v1.0.3 =&gt; Logging added when publishing or handling event.
+v1.0.4 =&gt; Added functionality =&gt; manually start listening to events.
+v1.0.5 =&gt; Bug Fixes
+v1.0.6 =&gt; Bug Fixes
+v1.0.7 =&gt; Added serilog. Event logs are enriched with event params. Custom Exceptions are handled to requeue event or not.
+v1.0.8 =&gt; EventBus update</PackageReleaseNotes>
+    <Version>1.0.8</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+    <Compile Remove="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.6.1" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Polly" Version="6.1.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.2" />
+  </ItemGroup>
+
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.1.1" />
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0' or '$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'net451' ">
+    <PackageReference Include="RabbitMQ.Client" Version="5.1.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\JorJika.EventBus\JorJika.EventBus.csproj" />
+  </ItemGroup>
+
+</Project>
