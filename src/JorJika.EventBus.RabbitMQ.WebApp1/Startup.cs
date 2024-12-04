@@ -84,7 +84,7 @@ namespace JorJika.EventBus.RabbitMQ.WebApp1
             services.AddSingleton<IRabbitMQPersistentConnection>(sp =>
             {
                 var logger = sp.GetRequiredService<ILogger<DefaultRabbitMQPersistentConnection>>();
-                var factory = new ConnectionFactory() { HostName = "test.eventbus.pashabank.ge" }; //linux.jorjika.net
+                var factory = new ConnectionFactory() { HostName = "test.eventbus.bank.ge" }; //linux.jorjika.net
                 factory.UserName = "appUser";
                 factory.Password = "appTestUser@123";
                 //factory.UserName = "jorjika";
