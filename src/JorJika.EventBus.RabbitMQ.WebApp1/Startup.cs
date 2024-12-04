@@ -42,7 +42,7 @@ namespace JorJika.EventBus.RabbitMQ.WebApp1
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            var loggingURL = "http://test.elklog.pashabank.ge:9200";
+            var loggingURL = "http://test.elklog.bank.ge:9200";
 
             // Create Serilog Elasticsearch logger
             Log.Logger = new LoggerConfiguration()
@@ -85,10 +85,10 @@ namespace JorJika.EventBus.RabbitMQ.WebApp1
             {
                 var logger = sp.GetRequiredService<ILogger<DefaultRabbitMQPersistentConnection>>();
                 var factory = new ConnectionFactory() { HostName = "test.eventbus.bank.ge" }; //linux.jorjika.net
-                factory.UserName = "appUser";
-                factory.Password = "appTestUser@123";
-                //factory.UserName = "jorjika";
-                //factory.Password = "gitara";
+                factory.UserName = "user1";
+                factory.Password = "test123";
+                //factory.UserName = "user";
+                //factory.Password = "user";
 
                 return new DefaultRabbitMQPersistentConnection(factory, logger);
             });
